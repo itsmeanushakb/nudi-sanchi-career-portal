@@ -1,23 +1,19 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import Categories from "./components/Categories";
-import LatestJobs from "./components/LatestJobs";
-import Footer from "./components/Footer";
+import Home from "./pages/Home";
 
 function App() {
-
   return (
-    <>
+    <BrowserRouter>
       <Navbar />
-      <Hero />
-      <Categories />
-      <LatestJobs />
-      <Footer />
-    </>
-  );
 
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;
