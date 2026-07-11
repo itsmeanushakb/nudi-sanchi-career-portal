@@ -7,6 +7,7 @@ import Footer from "../components/Footer";
 
 function Home() {
   const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
   return (
     <>
@@ -15,9 +16,15 @@ function Home() {
         setSearchTerm={setSearchTerm}
       />
 
-      <Categories />
+      <Categories
+        selectedCategory={selectedCategory}
+        setSelectedCategory={setSelectedCategory}
+      />
 
-      <LatestJobs searchTerm={searchTerm} />
+      <LatestJobs
+        searchTerm={searchTerm}
+        selectedCategory={selectedCategory}
+      />
 
       <Footer />
     </>

@@ -1,45 +1,51 @@
-function Categories() {
+type Props = {
+  selectedCategory: string;
+  setSelectedCategory: (category: string) => void;
+};
 
-    const categories = [
-        "SSC",
-        "UPSC",
-        "KPSC",
-        "Banking",
-        "Railway",
-        "Defence",
-        "Police",
-        "Teaching"
-    ];
+function Categories({
+  selectedCategory,
+  setSelectedCategory,
+}: Props) {
+  const categories = [
+    "All",
+    "SSC",
+    "UPSC",
+    "KPSC",
+    "Banking",
+    "Railway",
+    "Defence",
+    "Police",
+    "Teaching",
+  ];
 
-    return (
+  return (
+    <div className="container my-5">
+      <h2 className="text-center mb-4">
+        Browse Categories
+      </h2>
 
-        <div className="container my-5">
-
-            <h2 className="text-center mb-4">
-                Browse Categories
-            </h2>
-
-            <div className="row">
-
-                {categories.map((item) => (
-
-                    <div className="col-md-3 col-sm-6 mb-4" key={item}>
-
-                        <div className="card shadow text-center p-4">
-
-                            <h5>{item}</h5>
-
-                        </div>
-
-                    </div>
-
-                ))}
-
-            </div>
-
-        </div>
-
-    );
+      <div className="row">
+        {categories.map((category) => (
+          <div
+            className="col-md-3 col-sm-6 mb-3"
+            key={category}
+          >
+            <button
+              className={
+                selectedCategory === category
+                  ? "btn btn-primary w-100"
+                  : "btn btn-outline-primary w-100"
+              }
+              onClick={() => setSelectedCategory(category)}
+            >
+              {category}
+            </button>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 }
 
 export default Categories;
