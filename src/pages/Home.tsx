@@ -4,6 +4,7 @@ import Hero from "../components/Hero";
 import Categories from "../components/Categories";
 import LatestJobs from "../components/LatestJobs";
 import Footer from "../components/Footer";
+import FeaturedJobs from "../components/FeaturedJobs";
 
 function Home() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -20,6 +21,8 @@ function Home() {
         selectedCategory={selectedCategory}
         setSelectedCategory={setSelectedCategory}
       />
+
+      <FeaturedJobs />
 
       <LatestJobs
         searchTerm={searchTerm}
